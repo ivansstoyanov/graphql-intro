@@ -2,23 +2,44 @@
 # GraphQL Introduction
 (right click) on README.md -> Open Previw (or Cmd + Shift + V)
 
-#### GraphQL vs REST
+### GraphQL vs REST
 
 REST approach vs Graph approach
 
 ![rest-vs-gql](https://gary.wenneker.org/content/images/2019/07/image-2.png)
 
-#### GraphQL SDKs
+### GraphQL SDKs
 - apollo
 - graphql
 - neo4j
 - yoga
 - vulcan
 
-#### Include Apollo in existing project
+### Include Apollo in existing project
+- npm install apollo-server-express
 
+```
+import { ApolloServer, gql } from 'apollo-server-express'
 
-#### Schema and Schema types
+const server = new ApolloServer({
+    typeDefs: gql`
+      type Query {
+        hello: String
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello: () => 'Hello world!',
+      },
+    }
+})
+
+server.applyMiddleware({ app })
+```
+
+http://localhost:2020/graphql
+
+### Schema and Schema types
     - Schema types
         - Simple types (ID, Boolean, Float, Int, String)
         - Arrays and non-null ! [!]!
@@ -34,12 +55,12 @@ REST approach vs Graph approach
         - # single line comment
         - """ """ wrap multi line comment
 
-#### Datasources
+### Datasources
     - plugable and flexible inputs (api, dbs, files...)
 ![architecture-datasources](https://miro.medium.com/max/1400/1*f_XvFD7FvliMM74WHJ0vRQ.png)
 
 
-#### Resolvers
+### Resolvers
     - The business logic of our application
     - default resolvers
     - (root, args, context, info)
