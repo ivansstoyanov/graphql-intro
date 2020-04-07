@@ -132,3 +132,7 @@ http://localhost:2020/graphql
 [More caching](https://blog.apollographql.com/graphql-caching-the-elephant-in-the-room-11a3df0c23ad)
 
 [No queries frontend - GQLESS](https://gqless.dev/)
+
+[A way to write schema not in string](https://github.com/apollographql/graphql-tag)
+
+[How to generate schema for the frontend](https://medium.com/open-graphql/automatically-generate-typescript-definitions-for-graphql-queries-with-apollo-codegen-e73eae72b561)
