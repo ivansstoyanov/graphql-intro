@@ -5,6 +5,9 @@ import { resolvers } from './resolvers'
 import DotaAPI from './api-dota'
 
 const server = new ApolloServer({
+    context: async ({ req }) => {
+        return { user: { type: req.headers.authorization } }
+    },
     typeDefs,
     resolvers,
     dataSources: () => ({
